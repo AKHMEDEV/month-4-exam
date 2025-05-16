@@ -6,14 +6,13 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // app.setGlobalPrefix('/api'); 
+  // app.setGlobalPrefix('/api');
 
-
-    app.enableVersioning({
-      type: VersioningType.URI,
-      defaultVersion: '1',
-      prefix: 'v',
-    });
+  app.enableVersioning({
+    type: VersioningType.URI,
+    defaultVersion: '1',
+    prefix: 'v',
+  });
 
   app.enableCors({
     allowedHeaders: ['authorization'],
@@ -21,7 +20,6 @@ async function bootstrap() {
     optionsSuccessStatus: 200,
     origin: process.env.CORS_ORIGIN,
   });
-
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -42,6 +40,8 @@ async function bootstrap() {
     SwaggerModule.setup('api', app, documentFactory);
   }
 
+
+    // < npm run dev > ishga tushirish
   const PORT = process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000;
   await app.listen(PORT, () => {
     console.log(`started on port ${PORT} 🟢`);
