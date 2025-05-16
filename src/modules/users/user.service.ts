@@ -142,7 +142,7 @@ export class UserService implements OnModuleInit {
   async delete(id: number) {
     const foundedUser = await this.userModel.findByPk(id);
 
-    if (!foundedUser) throw new NotFoundException('Foydalanuvchi topilmadi');
+    if (!foundedUser) throw new NotFoundException('user not found');
 
     if (foundedUser.image) {
       await this.fsHelper.removeFiles(foundedUser.image);
@@ -151,7 +151,7 @@ export class UserService implements OnModuleInit {
     await this.userModel.destroy({ where: { id } });
 
     return {
-      message: "O'chirildi",
+      message: "deleted",
       data: foundedUser,
     };
   }
