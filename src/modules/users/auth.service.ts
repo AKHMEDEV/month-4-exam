@@ -65,7 +65,7 @@ export class AuthService {
     });
 
     return {
-      message: "Ro'yhatdan o'tkazildi",
+      message: "success",
       data: user,
     };
   }

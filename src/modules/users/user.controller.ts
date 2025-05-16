@@ -57,7 +57,7 @@ export class UserController {
     return await this.service.update(id, payload);
   }
 
-  @ApiOperation({ summary: 'User rasmini yangilash/yaratish' })
+  @ApiOperation({ summary: 'add and update user image' })
   @ApiConsumes('multipart/form-data')
   @Put(':id/image')
   @Protected(true)

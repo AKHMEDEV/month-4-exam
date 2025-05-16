@@ -9,7 +9,7 @@ import { UserRoles } from './enums';
 export class AuthController {
   constructor(private service: AuthService) {}
 
-  @ApiOperation({ summary: 'reister' })
+  @ApiOperation({ summary: 'register' })
   @Post('register')
   @Protected(false)
   @Roles([UserRoles.ADMIN, UserRoles.USER])
