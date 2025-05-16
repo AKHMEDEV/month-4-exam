@@ -41,7 +41,6 @@ async function bootstrap() {
   }
 
 
-    // < npm run dev > ishga tushirish
   const PORT = process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000;
   await app.listen(PORT, () => {
     console.log(`started on port ${PORT} 🟢`);
